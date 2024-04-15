@@ -43,6 +43,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // RGB LED settings
 #define WS2812_DI_PIN       D3
+// The number of LEDs connected
+#define RGB_MATRIX_LED_COUNT 70
 #ifdef RGBLIGHT_ENABLE
 #    define RGBLED_NUM      74
 #    define RGBLED_SPLIT    { 37, 37 }
