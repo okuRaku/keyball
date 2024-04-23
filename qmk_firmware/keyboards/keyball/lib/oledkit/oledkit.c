@@ -15,7 +15,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
+                     
 #include "quantum.h"
 
 #if defined(OLED_ENABLE) && !defined(OLEDKIT_DISABLE)
@@ -23,12 +23,25 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 __attribute__((weak)) void oledkit_render_logo_user(void) {
     // Require `OLED_FONT_H "keyboards/keyball/lib/logofont/logofont.c"`
     char ch = 0x80;
-    for (int y = 0; y < 3; y++) {
-        oled_write_P(PSTR("  "), false);
-        for (int x = 0; x < 16; x++) {
-            oled_write_char(ch++, false);
-        }
-        oled_advance_page(false);
+    switch (get_highest_layer(layer_state)) {
+        case 2:
+            for (int y = 0; y < 3; y++) {
+                oled_write_P(PSTR("  "), true);
+                for (int x = 0; x < 16; x++) {
+                    oled_write_char(ch++, true);
+                }
+                oled_advance_page(false);
+            }
+            break;
+        default:
+            for (int y = 0; y < 3; y++) {
+                oled_write_P(PSTR("  "), false);
+                for (int x = 0; x < 16; x++) {
+                    oled_write_char(ch++, false);
+                }
+                oled_advance_page(false);
+            }
+            break;
     }
 }
 

@@ -43,6 +43,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NO_ACTION_ONESHOT
 // #define NO_ACTION_TAPPING
 #define LAYER_STATE_8BIT
+#define SPLIT_LAYER_STATE_ENABLE
 
 
 // #define DRIVER_LED_TOTAL 74
