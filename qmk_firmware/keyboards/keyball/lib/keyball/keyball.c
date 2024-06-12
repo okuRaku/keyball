@@ -276,7 +276,7 @@ report_mouse_t pointing_device_driver_get_report(report_mouse_t rep) {
         }
     }
     // report mouse event, if keyboard is primary.
-        if (is_keyboard_master() && should_report()) {
+    if (is_keyboard_master() && should_report()) {
         // Reset total motion tracker.
         keyball.total_motion.x = 0;
         keyball.total_motion.y = 0;
