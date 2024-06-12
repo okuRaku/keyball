@@ -276,7 +276,7 @@ report_mouse_t pointing_device_driver_get_report(report_mouse_t rep) {
         }
     }
     // report mouse event, if keyboard is primary.
-    if (is_keyboard_master() && should_report()) {
+        if (is_keyboard_master() && should_report()) {
         // Reset total motion tracker.
         keyball.total_motion.x = 0;
         keyball.total_motion.y = 0;
@@ -285,6 +285,12 @@ report_mouse_t pointing_device_driver_get_report(report_mouse_t rep) {
         motion_to_mouse(&keyball.that_motion, &rep, !is_keyboard_left(), keyball.scroll_mode ^ keyball.this_have_ball);
         // store mouse report for OLED.
         keyball.last_mouse = rep;
+
+        // Check if in scroll mode and add to total motion
+        if (keyball.scroll_mode) {
+            keyball.total_motion.y += rep.v;  // Use 'v' for vertical scroll value
+            keyball.total_motion.x += rep.h;  // Use 'h' for horizontal scroll value
+        }
     }
     return rep;
 }
@@ -292,7 +298,14 @@ report_mouse_t pointing_device_driver_get_report(report_mouse_t rep) {
 bool auto_mouse_activation(report_mouse_t mouse_report) {
     keyball.total_motion.x += mouse_report.x;
     keyball.total_motion.y += mouse_report.y;
-    return abs(keyball.total_motion.x) > KEYBALL_AUTO_MOUSE_THRESHOLD || abs(keyball.total_motion.y) > KEYBALL_AUTO_MOUSE_THRESHOLD || mouse_report.buttons;
+    
+    // Check for scroll input
+    bool scroll_input_detected = keyball.scroll_mode && (abs(mouse_report.v) > 0 || abs(mouse_report.h) > 0);
+    
+    return abs(keyball.total_motion.x) > KEYBALL_AUTO_MOUSE_THRESHOLD || 
+           abs(keyball.total_motion.y) > KEYBALL_AUTO_MOUSE_THRESHOLD || 
+           mouse_report.buttons || 
+           scroll_input_detected;
 }
 
 //////////////////////////////////////////////////////////////////////////////
