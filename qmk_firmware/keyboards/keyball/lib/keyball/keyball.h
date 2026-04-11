@@ -51,7 +51,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /// Threshold of mouse movement before layer change occurs
 #ifndef KEYBALL_AUTO_MOUSE_THRESHOLD
-#    define KEYBALL_AUTO_MOUSE_THRESHOLD 2
+#    define KEYBALL_AUTO_MOUSE_THRESHOLD 1
 #endif
 
 /// Specify SROM ID to be uploaded PMW3360DW (optical sensor).  It will be
@@ -172,6 +172,10 @@ typedef struct {
     uint32_t scroll_mode_changed;
     uint8_t  scroll_div;
 
+    bool    display_slider;
+    // uint32_t display_slider_timeout;
+
+
 #if KEYBALL_SCROLLSNAP_ENABLE == 1
     uint32_t scroll_snap_last;
     int8_t   scroll_snap_tension_h;
@@ -220,6 +224,8 @@ void keyball_on_apply_motion_to_mouse_scroll(keyball_motion_t *m, report_mouse_t
 /// keyball_oled_render_ballinfo renders ball information to OLED.
 /// It uses just 21 columns to show the info.
 void keyball_oled_render_ballinfo(void);
+
+void keyball_oled_render_slider(void);
 
 /// keyball_oled_render_keyinfo renders last processed key information to OLED.
 /// It shows column, row, key code, and key name (if available).

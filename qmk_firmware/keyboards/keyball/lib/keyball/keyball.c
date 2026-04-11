@@ -27,7 +27,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 const uint8_t CPI_DEFAULT    = KEYBALL_CPI_DEFAULT / 100;
 const uint8_t CPI_MAX        = pmw3360_MAXCPI + 1;
+const uint8_t CPI_MIN        = 1;
+
 const uint8_t SCROLL_DIV_MAX = 7;
+const uint8_t SCROLL_DIV_MIN = 1;
 
 const uint16_t AML_TIMEOUT_MIN = 100;
 const uint16_t AML_TIMEOUT_MAX = 1000;
@@ -52,6 +55,8 @@ keyball_t keyball = {
     .scroll_div  = 0,
 
     .pressing_keys = { BL, BL, BL, BL, BL, BL, 0 },
+
+    .display_slider = false,
 };
 
 //////////////////////////////////////////////////////////////////////////////
@@ -122,12 +127,12 @@ static char to_1x(uint8_t x) {
 
 static void add_cpi(int8_t delta) {
     int16_t v = keyball_get_cpi() + delta;
-    keyball_set_cpi(v < 1 ? 1 : v);
+    keyball_set_cpi(v < CPI_MIN ? CPI_MIN : v);
 }
 
 static void add_scroll_div(int8_t delta) {
     int8_t v = keyball_get_scroll_div() + delta;
-    keyball_set_scroll_div(v < 1 ? 1 : v);
+    keyball_set_scroll_div(v < SCROLL_DIV_MIN ? SCROLL_DIV_MIN : v);
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -451,6 +456,18 @@ void keyball_oled_render_ballinfo(void) {
 
 void keyball_oled_render_ballsubinfo(void) {
 #ifdef OLED_ENABLE
+#endif
+}
+
+void keyball_oled_render_slider(void) {
+#ifdef OLED_ENABLE
+    oled_write_P(PSTR("7777777"), true);
+    // oled_write_char('0' + keyball_get_scroll_div(), false);
+    // oled_write_P(PSTR("xxx"), false);
+    // oled_write_char(keyball.scroll_div, false);
+    // oled_write_P(PSTR("xxx"), true);
+    // oled_write(format_4d(keyball_get_cpi()) + 1, false);
+    // oled_write_P(PSTR("    \xB1\xBC\xBD"), false);
 #endif
 }
 

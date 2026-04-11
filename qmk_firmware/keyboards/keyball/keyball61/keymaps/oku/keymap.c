@@ -21,37 +21,46 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "quantum.h"
 
 // clang-format off
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { 
   [0] = LAYOUT_universal(
-    KC_ESC        , KC_1     , KC_2     , KC_3     , KC_4     , KC_5     ,                                  KC_6     , KC_7     , KC_8     , KC_9     , KC_0     , KC_MINS  ,
-    KC_TAB        , KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                                  KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     , KC_LBRC  ,
-    KC_LCTL       , KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                                  KC_H     , KC_J     , KC_K     , KC_L     , KC_SCLN  ,KC_QUOT,
-    LM(1,MOD_LSFT), KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     , KC_RBRC  ,              KC_NUHS, KC_N     , KC_M     , KC_COMM  , KC_DOT   , KC_SLSH  , KC_INT1 ,
-    KC_LSFT       , KC_INT3  , KC_LGUI  , KC_LALT  , KC_SPC   , MO(2)    ,LT(3,KC_LNG1),  LT(2,KC_SPC),KC_BSPC     ,  _______ , _______  , _______  ,  KC_EQL  , KC_ENT 
+    KC_ESC  , KC_1     , KC_2     , KC_3     , KC_4     , KC_5     ,                                  KC_6     , KC_7     , KC_8     , KC_9     , KC_0     , KC_MINS  ,
+    KC_TAB  , KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                                  KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     , KC_LBRC  ,
+    KC_LCTL , KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                                  KC_H     , KC_J     , KC_K     , KC_L     , KC_SCLN  ,KC_QUOT,
+    KC_LSFT , KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     , KC_RBRC  ,              KC_NUHS, KC_N     , KC_M     , KC_COMM  , KC_DOT   , KC_SLSH  , KC_INT1 ,
+    MO(2) , KC_INT3  , KC_LGUI  , KC_LALT  , KC_SPC   , MO(3)      , TG(1),       LT(2,KC_BSPC), KC_SPC ,  _______ , _______  , _______  ,  KC_EQL  , KC_ENT 
   ),
 
   [1] = LAYOUT_universal(
-    _______  , _______  , _______  , _______ , _______  , _______  ,                                  _______  , _______  , _______ , _______ , S(KC_INT3) , _______ ,
-    _______  , _______  , _______  , _______ , _______  , _______  ,                                   _______ , _______  , _______ , _______  , _______ , _______  ,
-    _______  , _______  , _______  , _______ , _______  , _______  ,                                  _______  , _______  , _______ , _______ , _______, _______  ,
-    _______  , _______  , _______  , _______ , _______  , _______  , _______ ,              _______ , _______  , _______  , _______ , _______ , _______ ,_______,
-    _______  , _______  , _______  , _______ , _______  , _______  , _______  ,            _______  ,  KC_DEL  , _______  , _______ , _______  ,_______, _______
+    _______  , _______  , _______  , _______ , _______  , _______  ,                                  _______ , _______  , _______ , _______ , _______ , _______ ,
+    _______  , _______  , _______  , _______ , _______  , _______  ,                                  _______ , _______ , _______  , _______ , _______ , _______ ,
+    _______  , _______  , _______  , _______ , _______  , _______  ,                                  _______ , _______  , _______ , _______ , _______ , _______ ,
+    _______  , _______  , _______  , _______ , _______  , _______  , _______ ,              _______ , _______ , _______  , _______ , _______ , _______ , _______ ,
+    _______  , _______  , _______  , _______ , _______  , _______  , _______ ,              _______ , _______ , _______  , _______ , _______ , _______ , _______
   ),
 
   [2] = LAYOUT_universal(
-    _______  , KC_F1    , KC_F2     , KC_F3    , KC_F4   , KC_F5    ,                                 KC_F6    , KC_F7    , KC_F8    , KC_F9    , KC_F10   , KC_F11   ,
-    _______  , KC_PSLS  , KC_7      , KC_8     , KC_9   , KC_PMNS  ,                                  _______  , SCRL_DVD , KC_BTN3  , SCRL_DVI  , _______ , KC_F12   ,
-    _______  , KC_PAST  , KC_4      , KC_5     , KC_6    ,KC_PPLS	 ,                                  KC_UP    , KC_BTN1  , SCRL_MO  , KC_BTN2  , _______  , KC_PSCR  ,
-    _______  , KC_DOT  ,  KC_1      , KC_2     , KC_3   ,KC_ENT    , S(KC_8),               KC_LEFT , KC_DOWN  , KC_RGHT  , KC_PGDN  ,  KC_PGUP , _______  , _______  ,
-    _______  , _______  , KC_0     , _______ , _______  , _______  , _______  ,             _______  , KC_ENT  , _______  , _______  , _______  , _______  , _______
+    _______  , _______  , _______  , _______ , _______  , _______  ,                                  _______  , _______  , _______ , _______  , _______ , KC_DEL ,
+    _______  , _______  ,   KC_UP  , _______ , _______  , _______  ,                                   _______ , SCRL_DVD , KC_BTN3  , SCRL_DVI , _______ , _______  ,
+    _______  , KC_LEFT  , KC_DOWN  , KC_RGHT , _______  , _______  ,                                    KC_UP  , KC_BTN1  , SCRL_MO  , KC_BTN2  , _______, _______  ,
+    _______  , _______  , _______  , _______ , _______  , _______  , _______ ,              KC_LEFT , KC_DOWN  , KC_RGHT  , KC_PGDN  ,  KC_PGUP , _______ ,_______,
+    _______  , _______  , KC_LNG2  , KC_LNG1 , _______  , _______  , _______ ,            _______  , _______ , _______  , _______ , _______  ,_______, _______
   ),
 
   [3] = LAYOUT_universal(
-    RGB_TOG  , AML_TO   , AML_I50  , AML_D50  , SSNP_VRT  , SSNP_HOR  ,                                  RGB_M_P  , RGB_M_B  , RGB_M_R  , RGB_M_SW , RGB_M_SN , KC_DEL  ,
-    RGB_MOD  , RGB_HUI  , RGB_SAI  , RGB_VAI  , _______  , SSNP_FRE  ,                                  RGB_M_X  , RGB_M_G  , RGB_M_T  , RGB_M_TW , _______  , _______  ,
-    RGB_RMOD , RGB_HUD  , RGB_SAD  , RGB_VAD  , _______  , _______  ,                                  CPI_D1K  , CPI_D100 , CPI_I100 , CPI_I1K  , KBC_SAVE , KBC_RST  ,
-    _______  , _______  , _______  , _______  , _______  , _______  , EE_CLR   ,            EE_CLR   , KC_HOME  , KC_PGDN  , KC_PGUP  , KC_END   , _______  , _______  ,
-    QK_BOOT  , _______  , KC_LEFT  , KC_RGHT  , KC_DOWN  , KC_UP  , _______  ,            KC_LNG2  ,    KC_DEL  , _______  , _______  , _______  , _______  , QK_BOOT
+    _______  , KC_F1    , KC_F2     , KC_F3    , KC_F4   , KC_F5    ,                                 KC_F6    , KC_F7    , KC_F8    , KC_F9    , KC_F10   , KC_F11   ,
+    LALT(KC_TAB) , KC_PSLS  , KC_7      , KC_8     , KC_9   , KC_PMNS  ,                                  _______  , _______ , _______  , _______ , _______ , KC_F12   ,
+    _______  , KC_PAST  , KC_4      , KC_5     , KC_6    ,KC_PPLS	 ,                                  _______    , _______ , _______  , _______ , _______  , KC_PSCR  ,
+    _______  , KC_DOT  ,  KC_1      , KC_2     , KC_3   ,KC_ENT    , S(KC_8),               S(KC_9) , _______  , KC_HOME , KC_END  , _______ , _______  , _______  ,
+    _______  , _______  , KC_0     , _______ , _______  , _______  , MO(4)  ,             KC_DEL  , KC_ENT  , _______  , _______  , _______  , _______  , _______
+  ),
+
+  //2026-04-11 swapping RGB_TOG for KC_GRV because never used toggle..
+  [4] = LAYOUT_universal(
+    KC_GRV   , AML_TO   , AML_I50  , AML_D50  , SSNP_VRT  , SSNP_HOR  ,                                  _______  , _______  , _______  , _______ , _______ , KC_SLEP  ,
+    RGB_MOD  , RGB_HUI  , RGB_SAI  , RGB_VAI  , RGB_SPI  , SSNP_FRE  ,                                  _______  , _______  , _______  , _______ , _______  , _______  ,
+    RGB_RMOD , RGB_HUD  , RGB_SAD  , RGB_VAD  , RGB_SPD  , _______  ,                                  CPI_D1K  , CPI_D100 , CPI_I100 , CPI_I1K  , KBC_SAVE , KBC_RST  ,
+    _______  , _______  , _______  , _______  , _______  , _______  , EE_CLR   ,            EE_CLR   , KC_PGDN ,  KC_HOME  , KC_END    , KC_PGUP  , _______  , _______  ,
+    QK_BOOT  , _______  , KC_LEFT  , KC_RGHT  , KC_DOWN  , _______  , _______  ,            KC_LNG2  ,    KC_LNG1  , _______  , _______  , _______  , _______  , QK_BOOT
   ),
   // Below map is for when keyboard is set to US layout (and out of date)
   // [0] = LAYOUT_universal(
@@ -104,223 +113,285 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    // Auto enable scroll mode when the highest layer is 3
-    keyball_set_scroll_mode(get_highest_layer(state) == 3);
+    // Auto enable scroll mode when the highest layer is 4
+    keyball_set_scroll_mode(get_highest_layer(state) == 4);
 
-    // // レイヤーとLEDを連動させる
-    // uint8_t layer = biton32(state);
-    // switch (layer)
-    // {
-    // case 4:
-    //     //rgblight_sethsv(HSV_WHITE);
-    //     rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-    //   break;
-
-    // default:
-    //   //rgblight_sethsv(HSV_OFF);
-    //   rgb_matrix_reload_from_eeprom();
-    // }
+    // レイヤーとLEDを連動させる
+    switch (get_highest_layer(state))
+    {
+    case 1:
+      //rgblight_sethsv(HSV_WHITE);
+      rgb_matrix_sethsv_noeeprom(HSV_RED);
+      rgb_matrix_set_speed_noeeprom(255);
+      rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+      break;
+    case 2:
+      //rgblight_sethsv(HSV_WHITE);
+      rgb_matrix_sethsv_noeeprom(rgb_matrix_get_hue(), rgb_matrix_get_sat(), 125);
+      rgb_matrix_set_speed_noeeprom(255);
+      rgb_matrix_mode_noeeprom(RGB_MATRIX_RAINBOW_MOVING_CHEVRON);
+      break;
+    case 3:
+      //rgblight_sethsv(HSV_WHITE);
+      rgb_matrix_sethsv_noeeprom(rgb_matrix_get_hue(), rgb_matrix_get_sat(), 125);
+      rgb_matrix_mode_noeeprom(RGB_MATRIX_SPLASH);
+      break;
+    default:
+      //rgblight_sethsv(HSV_OFF);
+      rgb_matrix_reload_from_eeprom();
+    }
 
     return state;
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (keycode == KC_SLEP) {
+      // if putting the computer to sleep, turn off LEDs
+      rgb_matrix_disable_noeeprom();
+  } else if (keycode == RGB_TOG) {
+      // process as normal
+  } else {
+      // turn on LEDs on any other keypress
+      rgb_matrix_enable_noeeprom();
+  }
+
+
+  if(IS_LAYER_ON(1)) {
+    switch (keycode) {
+      case KC_W:
+      case KC_A:
+      case KC_S:
+      case KC_D:
+      case KC_SPACE:
+          // Do nothing for W, A, S, D, or Space
+          break;
+      default : //exsel is the last one before the modifier keys
+        if (record->event.pressed && (keycode > KC_A && keycode < KC_EXSL)) {
+          // register_code(KC_LSFT); 
+          // register_code(keycode);
+          // unregister_code(keycode);
+          // unregister_code(KC_LSFT); 
+          tap_code16_delay(S(keycode), 20);
+          layer_off(1);
+          return false;
+        }
+        break;
+    }
+  }
+  
+  return true;
 }
 
 #ifdef OLED_ENABLE
 
 #    include "lib/oledkit/oledkit.h"
 
+// void oledkit_render_logo_user(void) {
+//   // if(!keyball.display_slider){
+//   //   keyball_oled_render_slider();
+//   // } else {
+//     oledkit_render_logo();
+//   // }
+//     // oled_write_P(PSTR("\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1"), false);
+//     // oled_write_P(PSTR("\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1"), true);
+//     // oled_write_P(PSTR("\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1"), false);
+//     // oled_write_P(PSTR("\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1\xB1"), true);
+// }
+
 void oledkit_render_info_user(void) {
+    // keyball_oled_render_slider();
     keyball_oled_render_keyinfo();
     keyball_oled_render_ballinfo();
     keyball_oled_render_layerinfo();
 }
-
 #endif
 
-bool led_update_user(led_t led_state) {
-	if (!led_state.num_lock) {
-		tap_code(KC_NUM_LOCK);
-	}
-	return true;
-}
-
-// led_config_t g_led_config = { {
-//   // Key Matrix to LED Index
-  /*
-  {24, 19, 14,  9,  5,  1,            66,     62,     58,     54, 49, 44}, \
-  {25, 20, 15, 10,  6,  2,            67,     63,     59,     55, 50, 45}, \
-  {26, 21, 16, 11,  7,  3,            68,     64,     60,     56, 51, 46}, \
-  {27, 22, 17, 12,  8,  4,  0,    70, 69,     65,     61,     57, 52, 47}, \
-  {28, 23, 18, 13, 34, 35, 36,    37, 38, NO_LED, NO_LED, NO_LED, 53, 48} \ 
-  // {29, 30, 31 ,32, 33,                    39, 40, 41, 42, 43}   //underglows 
-  */
-//   {24, 19,     14, NO_LED,      9,      5,  1, NO_LED}, 
-//   {25, 20,     15, NO_LED,     10,      6,  2, NO_LED}, 
-//   {26, 21,     16, NO_LED,     11,      7,  3, NO_LED}, 
-//   {27, 22,     17, NO_LED,     12,      8,  4,      0}, 
-//   {28, 23,     18, NO_LED,     13,     34, 35,     36}, 
-//   {44, 49,     54, NO_LED,     58,     62, 66, NO_LED}, 
-//   {45, 50,     55, NO_LED,     59,     63, 67, NO_LED}, 
-//   {46, 51,     56, NO_LED,     60,     64, 68, NO_LED}, 
-//   {47, 52,     57, NO_LED,     61,     65, 69,     70}, 
-//   {48, 53, NO_LED, NO_LED, NO_LED, NO_LED, 38,     37} 
-// }, {
-//   // LED Index to Physical Position
-//   // {x,y}: x = 224 / (NUMBER_OF_COLS - 1) * COL_POSITION , y =  64 / (NUMBER_OF_ROWS - 1) * ROW_POSITION
-// {84,48}	, //0
-// {70,0}	, //1
-// {70,16}	, //2
-// {70,32}	, //3
-// {70,48}	, //4
-// {56,0}	, //5
-// {56,16}	, //6
-// {56,32}	, //7
-// {56,48}	, //8
-// {42,0}	, //9
-// {42,16}	, //10
-// {42,32}	, //11
-// {42,48}	, //12
-// {42,64}	, //13
-// {28,0}	, //14
-// {28,16}	, //15
-// {28,32}	, //16
-// {28,48}	, //17
-// {28,64}	, //18
-// {14,0}	, //19
-// {14,16}	, //20
-// {14,32}	, //21
-// {14,48}	, //22
-// {14,64}	, //23
-// {0,0}	, //24
-// {0,16}	, //25
-// {0,32}	, //26
-// {0,48}	, //27
-// {0,64}	, //28
-// {0,0}	, //29
-// {0,0}	, //30
-// {0,0}	, //31
-// {0,0}	, //32
-// {0,0}	, //33
-// {56,64}	, //34
-// {70,64}	, //35
-// {84,64}	, //36
-// {126,64}	, //37
-// {140,64}	, //38
-// {0,0}	, //39
-// {0,0}	, //40
-// {0,0}	, //41
-// {0,0}	, //42
-// {0,0}	, //43
-// {210,0}	, //44
-// {210,16}	, //45
-// {210,32}	, //46
-// {210,48}	, //47
-// {210,64}	, //48
-// {196,0}	, //49
-// {196,16}	, //50
-// {196,32}	, //51
-// {196,48}	, //52
-// {196,64}	, //53
-// {182,0}	, //54
-// {182,16}	, //55
-// {182,32}	, //56
-// {182,48}	, //57
-// {168,0}	, //58
-// {168,16}	, //59
-// {168,32}	, //60
-// {168,48}	, //61
-// {154,0}	, //62
-// {154,16}	, //63
-// {154,32}	, //64
-// {154,48}	, //65
-// {140,0}	, //66
-// {140,16}	, //67
-// {140,32}	, //68
-// {140,48}	/*, //69
-// {126,48}	, //70
-
-// {0,0}	, //71
-// {0,0}	, //72
-// {0,0}	, //73
-// */
-// }, {
-//   // LED Index to Flag
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_NONE	,
-// LED_FLAG_NONE	,
-// LED_FLAG_NONE	,
-// LED_FLAG_NONE	,
-// LED_FLAG_NONE	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_NONE	,
-// LED_FLAG_NONE	,
-// LED_FLAG_NONE	,
-// LED_FLAG_NONE	,
-// LED_FLAG_NONE	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	,
-// LED_FLAG_KEYLIGHT	/*,
-// LED_FLAG_KEYLIGHT ,
-// LED_FLAG_NONE	,
-// LED_FLAG_NONE	,
-// LED_FLAG_NONE		*/
-// } };
-
-// void keyboard_post_init_user(void) {
-//   // Call the post init code.
-//   rgb_matrix_reload_from_eeprom();
+// bool led_update_user(led_t led_state) {
+// 	if (!led_state.num_lock) {
+// 		tap_code(KC_NUM_LOCK);
+// 	}
+// 	return true;
 // }
+
+#ifdef RGB_MATRIX_ENABLE
+ led_config_t g_led_config = { {
+   // Key Matrix to LED Index
+/*
+{24, 19, 14,  9,  5,  1,            66,     62,     58,     54, 49, 44}, \
+{25, 20, 15, 10,  6,  2,            67,     63,     59,     55, 50, 45}, \
+{26, 21, 16, 11,  7,  3,            68,     64,     60,     56, 51, 46}, \
+{27, 22, 17, 12,  8,  4,  0,    70, 69,     65,     61,     57, 52, 47}, \
+{28, 23, 18, 13, 34, 35, 36,    37, 38, NO_LED, NO_LED, NO_LED, 53, 48} \ 
+// {29, 30, 31 ,32, 33,                    39, 40, 41, 42, 43}   //underglows 
+*/
+   {24, 19,     14, NO_LED,      9,      5,  1, NO_LED}, 
+   {25, 20,     15, NO_LED,     10,      6,  2, NO_LED}, 
+   {26, 21,     16, NO_LED,     11,      7,  3, NO_LED}, 
+   {27, 22,     17, NO_LED,     12,      8,  4,      0}, 
+   {28, 23,     18, NO_LED,     13,     34, 35,     36}, 
+   {44, 49,     54, NO_LED,     58,     62, 66, NO_LED}, 
+   {45, 50,     55, NO_LED,     59,     63, 67, NO_LED}, 
+   {46, 51,     56, NO_LED,     60,     64, 68, NO_LED}, 
+   {47, 52,     57, NO_LED,     61,     65, 69,     70}, 
+   {48, 53, NO_LED, NO_LED, NO_LED, NO_LED, 38,     37} 
+ }, {
+   // LED Index to Physical Position
+   // {x,y}: x = 224 / (NUMBER_OF_COLS - 1) * COL_POSITION , y =  64 / (NUMBER_OF_ROWS - 1) * ROW_POSITION
+ {84,48}	, //0
+ {70,0}	, //1
+ {70,16}	, //2
+ {70,32}	, //3
+ {70,48}	, //4
+ {56,0}	, //5
+ {56,16}	, //6
+ {56,32}	, //7
+ {56,48}	, //8
+ {42,0}	, //9
+ {42,16}	, //10
+ {42,32}	, //11
+ {42,48}	, //12
+ {42,64}	, //13
+ {28,0}	, //14
+ {28,16}	, //15
+ {28,32}	, //16
+ {28,48}	, //17
+ {28,64}	, //18
+ {14,0}	, //19
+ {14,16}	, //20
+ {14,32}	, //21
+ {14,48}	, //22
+ {14,64}	, //23
+ {0,0}	, //24
+ {0,16}	, //25
+ {0,32}	, //26
+ {0,48}	, //27
+ {0,64}	, //28
+ {0,0}	, //29
+ {0,0}	, //30
+ {0,0}	, //31
+ {0,0}	, //32
+ {0,0}	, //33
+ {56,64}	, //34
+ {70,64}	, //35
+ {84,64}	, //36
+ {126,64}	, //37
+ {140,64}	, //38
+ {0,0}	, //39
+ {0,0}	, //40
+ {0,0}	, //41
+ {0,0}	, //42
+ {0,0}	, //43
+ {210,0}	, //44
+ {210,16}	, //45
+ {210,32}	, //46
+ {210,48}	, //47
+ {210,64}	, //48
+ {196,0}	, //49
+ {196,16}	, //50
+ {196,32}	, //51
+ {196,48}	, //52
+ {196,64}	, //53
+ {182,0}	, //54
+ {182,16}	, //55
+ {182,32}	, //56
+ {182,48}	, //57
+ {168,0}	, //58
+ {168,16}	, //59
+ {168,32}	, //60
+ {168,48}	, //61
+ {154,0}	, //62
+ {154,16}	, //63
+ {154,32}	, //64
+ {154,48}	, //65
+ {140,0}	, //66
+ {140,16}	, //67
+ {140,32}	, //68
+ {140,48}	/*, //69
+ {126,48}	, //70
+ {0,0}	, //71
+ {0,0}	, //72
+ {0,0}	, //73
+ */
+ }, {
+   // LED Index to Flag
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_NONE	,
+ LED_FLAG_NONE	,
+ LED_FLAG_NONE	,
+ LED_FLAG_NONE	,
+ LED_FLAG_NONE	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_NONE	,
+ LED_FLAG_NONE	,
+ LED_FLAG_NONE	,
+ LED_FLAG_NONE	,
+ LED_FLAG_NONE	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	,
+ LED_FLAG_KEYLIGHT	/*,
+ LED_FLAG_KEYLIGHT ,
+ LED_FLAG_NONE	,
+ LED_FLAG_NONE	,
+ LED_FLAG_NONE		*/
+ } };
+
+void keyboard_post_init_user(void) {
+  // Call the post init code.
+  rgb_matrix_reload_from_eeprom();
+}
+#endif

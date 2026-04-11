@@ -47,14 +47,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 // #define DRIVER_LED_TOTAL 74
-// #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 125 // limits maximum brightness of LEDs to 200 out of 255. If not defined maximum brightness is set to 255
+#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 125 // limits maximum brightness of LEDs to 200 out of 255. If not defined maximum brightness is set to 255
 // #define RGB_MATRIX_DEFAULT_HUE 125 // Sets the default hue value, if none has been set
 // #define RGB_MATRIX_DEFAULT_SAT 255 // Sets the default saturation value, if none has been set
 // #define RGB_MATRIX_DEFAULT_VAL 125 // Sets the default brightness value, if none has been set
 
 // #define RGB_MATRIX_FRAMEBUFFER_EFFECTS
-// #define ENABLE_RGB_MATRIX_TYPING_HEATMAP
-// #define ENABLE_RGB_MATRIX_PIXEL_RAIN
+// #define ENABLE_RGB_MATRIX_TYPING_HEATMA
+#define ENABLE_RGB_MATRIX_PIXEL_RAIN
+#define ENABLE_RGB_MATRIX_RAINBOW_MOVING_CHEVRON
+// #define ENABLE_RGB_MATRIX_DIGITAL_RAIN
 // #define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
 // #define RGB_MATRIX_TYPING_HEATMAP_SPREAD 32
 // #define RGB_MATRIX_TYPING_HEATMAP_AREA_LIMIT 16
@@ -62,6 +64,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // #define RGB_MATRIX_KEYPRESSES // reacts to keypresses
 // #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
+#define ENABLE_RGB_MATRIX_SPLASH
+// #define ENABLE_RGB_MATRIX_CYCLE_OUT_IN
+// #define ENABLE_RGB_MATRIX_CYCLE_OUT_IN_DUAL
+#define ENABLE_RGB_MATRIX_CYCLE_SPIRAL
+// #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTINEXUS
+
+//#define SPLIT_TRANSPORT_MIRROR -- seems to be breaking but needed for proper reactive
 // #define RGBLIGHT_LAYERS
-#define RGBLIGHT_SLEEP // turn off effects when suspended
-// #define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_PIXEL_RAIN// Sets the default mode, if none has been set
+// #define RGBLIGHT_SLEEP // turn off effects when suspended
+#define RGB_MATRIX_SLEEP
+#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SPLASH // Sets the default mode, if none has been set
