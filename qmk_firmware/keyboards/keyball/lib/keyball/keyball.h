@@ -51,7 +51,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /// Threshold of mouse movement before layer change occurs
 #ifndef KEYBALL_AUTO_MOUSE_THRESHOLD
-#    define KEYBALL_AUTO_MOUSE_THRESHOLD 1
+#    define KEYBALL_AUTO_MOUSE_THRESHOLD 10
 #endif
 
 /// Specify SROM ID to be uploaded PMW3360DW (optical sensor).  It will be
